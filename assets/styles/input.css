@@ -1,0 +1,54 @@
+.input label {
+	display: block;
+	margin-bottom: 10px;
+
+	font-size: 18px;
+}
+
+.input__field {
+	background-color: transparent;
+	border: 1px solid grey;
+	height: 20px;
+	padding: 5px;
+	color: white;
+	width: 100%;
+}
+
+.input__field.-redError {
+	border: 1px solid grey;
+	color: red;
+}
+
+.input__container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.input__field:hover, 
+.input__field:focus {
+	outline: none;
+	border-color: lightgreen;
+	color: lightgreen;
+	transition: .3s;
+}
+
+.input__btn img {
+	cursor: pointer;
+	margin-left: 10px;
+	height: 20px;
+}
+
+.input__error {
+	transition: .3s ease-out;
+	color: red;
+	height: 0;
+	overflow: hidden;
+}
+
+.input.-error .input__error {
+	transition: .3s ease-out;	
+	display: flex;	
+	height: 20px;
+}
+

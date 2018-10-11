@@ -1,0 +1,49 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	min-height: 100vh;
+
+	background-color: black;
+	color: lightgreen;
+
+	font-family: "Trebuchet MS";
+}
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+	text-align: center;
+	font-size: 65px;
+	font-weight: 900;
+}
+
+h2 {
+	font-size: 25px;
+	font-weight: 900;	
+}
+
+.container {
+	margin: 0 auto;
+	width: 1024px;
+}
+
+.card {
+	padding: 15px;
+	border: 1px solid grey;
+}
+
+.card__header {
+	margin-bottom: 15px;
+}
+
+.auth-panel {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.auth-panel h1 {
+	margin-bottom: 30px;
+}
