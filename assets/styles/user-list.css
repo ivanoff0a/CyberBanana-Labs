@@ -19,6 +19,17 @@
 	display: flex;
 	-ms-align-items: center;
 	align-items: center;
+	margin-right: 40px;
+}
+
+.user-list {
+	overflow-x: auto;
+	margin-bottom: 15px;
+}
+
+.user-list__item:hover {
+	border: 1px solid lightgreen;
+	transition: .3s ease-out;
 }
 
 .user-list__avatar {
@@ -56,7 +67,11 @@
 }
 
 .user-list__id {
+	display: flex;
+	justify-content: center;
+	margin-top: 5px;
 	margin-bottom: 10px;
+	font-size: 17px;
 }
 
 .user-list__id span {
