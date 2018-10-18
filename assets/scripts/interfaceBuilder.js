@@ -32,6 +32,12 @@ interfaceBuilder.interfaces = {
 			</div>'			
 }
 
+interfaceBuilder.buildAdminInterface = function(userList) {
+	interfaceBuilder.build('base');
+	interfaceBuilder.parent.find('.js-cardHeader h2').text('Admin Interface');	
+	interfaceBuilder.parent.find('.js-cardBody').html(interfaceBuilder.prepareUserList(userList));
+}
+
 interfaceBuilder.build = function(interface) {
 	interfaceBuilder.parent.html(interfaceBuilder.interfaces[interface]);
 };
@@ -61,8 +67,16 @@ interfaceBuilder.prepareUserList = function(userList) {
 							<p class="user-list__name">' + user.name + '</p>\
 							<p class="user-list__id">ID:<span>' + user.id + '</span></p>\
 						</div>\
-					</div>';
-	});	
+					</div>';				
+	});
+
+	result += '<div class="user-list__item card">\
+						<div class="user-list__add">\
+							<svg class="icon-add">\
+								<use xlink:href="assets/img/add.svg#icon"></use>\
+							</svg>\
+						</div>\
+					</div>';		
 
 	return result + '</div>';
 }

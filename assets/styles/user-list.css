@@ -79,3 +79,9 @@
 	font-size: 15px;
 }
 
+.user-list__add img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150px;
+}

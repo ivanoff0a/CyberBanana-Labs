@@ -25,9 +25,9 @@ $(document).ready(function() {
 		}				
 	];
 
-	interfaceBuilder.build('base');
-	interfaceBuilder.parent.find('.js-cardHeader h2').text('Admin Interface');	
-	interfaceBuilder.parent.find('.js-cardBody').html(interfaceBuilder.prepareUserList(userList));
+	interfaceBuilder.buildAdminInterface(userList);
+
+
 
 	$('.js-authBtn').click(function(){
 		checkPass($('.js-authInput').val());
@@ -46,12 +46,19 @@ $(document).ready(function() {
 	})
 
 	function checkPass(userPass) {
-		for(let i = 0; i< userList.length; i++){
-			if (userPass == userList[i].id) {
+		userList.forEach(function(user) {
+			if (userPass == user.id) {
 				userLoggedIn = true;
-				currentUser = userList[i];
-			}
-		}
+				currentUser = user;
+			}			
+		});
+
+		// for(let i = 0; i< userList.length; i++){
+		// 	if (userPass == userList[i].id) {
+		// 		userLoggedIn = true;
+		// 		currentUser = userList[i];
+		// 	}
+		// }		
 
 		if (!userLoggedIn) {
 			$('.js-authPanel').addClass('-error');
