@@ -35,6 +35,16 @@ h2 {
 	border: 1px solid grey;
 }
 
+.row {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.row > fieldset {
+	width: calc(50% - 5px);
+}
+
 .card__header {
 	margin-bottom: 15px;
 }
