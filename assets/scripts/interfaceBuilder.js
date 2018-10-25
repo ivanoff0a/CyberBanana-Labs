@@ -70,7 +70,7 @@ interfaceBuilder.prepareUserList = function(userList) {
 					</div>';				
 	});
 
-	result += '<div class="user-list__item card">\
+	result += '<div class="user-list__item user-list__add card">\
 					<div class="user-list__add">\
 						<img href="assets/img/add.svg">\
 					</div>\

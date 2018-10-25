@@ -1,6 +1,11 @@
 $(document).ready(function() {
 	let currentUser = null;
 	let userLoggedIn = false;
+	let newUserId;
+	let newUserName;
+	let newUserAge;
+	let newUserType;
+
 	let userList = [
 		{
 			id: 7856, 
@@ -27,7 +32,26 @@ $(document).ready(function() {
 
 	interfaceBuilder.buildAdminInterface(userList);
 
+	$('.user-list__add').click(function() {
+		modalService.openModal('newUser');	
+	});
 
+	$('body').on('click', '.modal__bg', function() {
+		$('.modal').remove();	
+	});
+
+	$('body').on('click', '.js-sendBtn', function() {
+		userList.push({
+			id: 3333, 
+			type: newUserType,
+			name: newUserName,
+			age: newUserAge,
+			img: 'https://66.media.tumblr.com/1980269315c4de36d03e616d073e8b85/tumblr_pgehj3xMFu1qz9v0to10_1280.jpg'
+		})
+		newUserName = $('.js-newUserName').val();
+		newUserAge = $('.js-newUserAge').val();
+		newUserType = $('.js-newUserType').val();
+	});
 
 	$('.js-authBtn').click(function(){
 		checkPass($('.js-authInput').val());
