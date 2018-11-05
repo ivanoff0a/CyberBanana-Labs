@@ -45,10 +45,6 @@ h2 {
 	width: calc(50% - 5px);
 }
 
-.card__header {
-	margin-bottom: 15px;
-}
-
 .auth-panel {
 	max-width: 600px;
 	margin: 0 auto;

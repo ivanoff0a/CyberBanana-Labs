@@ -52,6 +52,3 @@ modalService.openModal = function(modal) {
 	$('.modal__body').append(modalService.modals[modal]);
 }
 
-// modalService.closeModal = function() {
-// 	$('.modal').remove();
-// }

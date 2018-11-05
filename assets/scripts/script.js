@@ -1,10 +1,11 @@
 $(document).ready(function() {
 	let currentUser = null;
 	let userLoggedIn = false;
-	let newUserId;
-	let newUserName;
-	let newUserAge;
-	let newUserType;
+	let newUserId,
+	 	newUserName,
+	 	newUserAge,
+	 	newUserType,
+	 	userSameId;
 
 	let userList = [
 		{
@@ -32,7 +33,7 @@ $(document).ready(function() {
 
 	interfaceBuilder.buildAdminInterface(userList);
 
-	$('.user-list__add').click(function() {
+	$('body').on('click', '.user-list__add', function() {
 		modalService.openModal('newUser');	
 	});
 
@@ -42,15 +43,15 @@ $(document).ready(function() {
 
 	$('body').on('click', '.js-sendBtn', function() {
 		userList.push({
-			id: 3333, 
-			type: newUserType,
-			name: newUserName,
-			age: newUserAge,
-			img: 'https://66.media.tumblr.com/1980269315c4de36d03e616d073e8b85/tumblr_pgehj3xMFu1qz9v0to10_1280.jpg'
+			id: getId($('body').find('.js-newUserType').val()), 
+			type: $('body').find('.js-newUserType').val(),
+			name: $('body').find('.js-newUserName').val(),
+			age: $('body').find('.js-newUserAge').val(),
+			img: getImage()
 		})
-		newUserName = $('.js-newUserName').val();
-		newUserAge = $('.js-newUserAge').val();
-		newUserType = $('.js-newUserType').val();
+		console.log(userList);
+		$('.modal').remove();
+		interfaceBuilder.buildAdminInterface(userList);
 	});
 
 	$('.js-authBtn').click(function(){
@@ -69,20 +70,55 @@ $(document).ready(function() {
 		$('.input__field').addClass('-redError');	
 	})
 
+	function getImage() {
+
+	}
+
+	function getId(type) {
+		var min, max, id;
+		if (type == 'Admin' ) {
+			min = 7000; max = 7999;
+		}
+		if (type == 'User' ) {
+			min = 3000; max = 3999;
+		}
+		if (type == 'Hacker' ) {
+			min = 1000; max = 1999;
+		}
+
+		id = getRandomInteger(min, max); 
+
+		if (isIdDuplicated(id)) {
+			getId(type);
+		} else {
+			return id;
+		}
+  	}
+
+	function getRandomInteger(min, max) {
+		var rand = min - 0.5 + Math.random() * (max - min + 1);
+    	rand = Math.round(rand);
+    	return rand;
+    }  	
+
+	function isIdDuplicated(userId) {
+		userList.forEach(function(user) {
+			if (userId == user.id) {
+				userSameId = true;
+				getRandomInteger(min, max);
+			} else {
+				return false;
+			}			
+		});		
+	}
+
 	function checkPass(userPass) {
 		userList.forEach(function(user) {
 			if (userPass == user.id) {
 				userLoggedIn = true;
 				currentUser = user;
 			}			
-		});
-
-		// for(let i = 0; i< userList.length; i++){
-		// 	if (userPass == userList[i].id) {
-		// 		userLoggedIn = true;
-		// 		currentUser = userList[i];
-		// 	}
-		// }		
+		});	
 
 		if (!userLoggedIn) {
 			$('.js-authPanel').addClass('-error');
