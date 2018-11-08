@@ -72,7 +72,7 @@ interfaceBuilder.prepareUserList = function(userList) {
 
 	result += '<div class="user-list__item user-list__add card">\
 					<div class="user-list__add">\
-						<img href="assets/img/add.svg">\
+						<img class="add-img" href="assets/img/add.svg">\
 					</div>\
 				</div>';		
 

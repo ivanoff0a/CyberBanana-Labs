@@ -10,7 +10,6 @@
 	-ms-flex-direction: row;
 	-o-flex-direction: row;
 	flex-direction: row;
-	justify-content: space-between;
 }
 
 .user-list__item {
@@ -22,6 +21,7 @@
 	margin-right: 25px;
 	margin-left: 25px;
 	margin-top: 30px;
+	justify-content: space-between;
 }
 
 .user-list {
