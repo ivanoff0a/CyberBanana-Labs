@@ -25,6 +25,7 @@ interfaceBuilder.interfaces = {
 				<div class="card">\
 					<div class="card__header js-cardHeader">\
 					<h2></h2>\
+					<img class="js-logOutBtn" src="assets/img/logout.svg">\
 					</div>\
 					<div class="card__body js-cardBody">\
 					</div>\

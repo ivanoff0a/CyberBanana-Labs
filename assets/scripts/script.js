@@ -31,7 +31,8 @@ $(document).ready(function() {
 		}				
 	];
 
-	interfaceBuilder.buildAdminInterface(userList);
+	
+	interfaceBuilder.build('login');
 
 	$('body').on('click', '.user-list__add', function() {
 		modalService.openModal('newUser');	
@@ -53,11 +54,17 @@ $(document).ready(function() {
 		interfaceBuilder.buildAdminInterface(userList);
 	});
 
+	$('body').on('click', '.js-logOutBtn', function() {
+		interfaceBuilder.build('login');
+		userLoggedIn = false;
+		currentUser = null;
+	});
+
 	$('.js-authBtn').click(function(){
 		checkPass($('.js-authInput').val());
 	});
 
-	$(".js-authInput").keydown(function(event){
+	$('.js-authInput').keydown(function(event){
 	    if(event.keyCode == 13){
 	        event.preventDefault();
     		checkPass($('.js-authInput').val());	        
@@ -136,8 +143,16 @@ $(document).ready(function() {
 		if (!userLoggedIn) {
 			$('.js-authPanel').addClass('-error');
 		} else {
-			interfaceBuilder.showMessage('Welcome on board, ' + currentUser.name)
+			openAdminInterface();
 		}	
+	}
+
+	function openAdminInterface() {
+		interfaceBuilder.showMessage('Welcome on board, ' + currentUser.name);
+		setTimeout(function() {
+			interfaceBuilder.buildAdminInterface(userList);	
+		}, 1700);
+		
 	}
 
 
