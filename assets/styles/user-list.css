@@ -16,7 +16,6 @@
 	height: 200px;
 	width: 300px;
 	display: flex;
-	-ms-align-items: center;
 	align-items: center;
 	margin-right: 25px;
 	margin-left: 25px;
@@ -61,7 +60,7 @@
 }
 
 .user-list__name {
-	margin-top: 100px;
+	margin-top: 80px;
 	font-size: 20px;
 }
 
@@ -82,9 +81,23 @@
 	font-size: 15px;
 }
 
+.user-list__add  {
+	height: 200px;
+	width: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .user-list__add img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 150px;
+	width: 150px;
+}
+
+.user-list__delete {
+	height: 25px;
+	cursor: pointer;
 }

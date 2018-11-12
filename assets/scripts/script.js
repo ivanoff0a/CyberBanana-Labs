@@ -34,8 +34,13 @@ $(document).ready(function() {
 	
 	interfaceBuilder.build('login');
 
-	$('body').on('click', '.user-list__add', function() {
+	$('body').on('click', '.js-addBtn', function() {
 		modalService.openModal('newUser');	
+	});
+
+	$('body').on('click', '.js-deleteBtn', function() {
+		userList.splice(($(this).index), 1);
+		interfaceBuilder.buildAdminInterface(userList);	
 	});
 
 	$('body').on('click', '.modal__bg', function() {
@@ -59,19 +64,17 @@ $(document).ready(function() {
 		userLoggedIn = false;
 		currentUser = null;
 	});
-
-	$('.js-authBtn').click(function(){
+	$('body').on('click', '.js-authBtn', function() {
 		checkPass($('.js-authInput').val());
 	});
 
-	$('.js-authInput').keydown(function(event){
+	$('body').on('keydown', '.js-authInput', function(){
 	    if(event.keyCode == 13){
 	        event.preventDefault();
     		checkPass($('.js-authInput').val());	        
 	    }
 	});	
-
-	$('.js-authInput').focus(function() {
+	$('body').on('focus', '.js-authInput', function(){
 		$('.js-authPanel').removeClass('-error');
 		$('.input__field').addClass('-redError');	
 	})

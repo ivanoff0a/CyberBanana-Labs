@@ -67,13 +67,14 @@ interfaceBuilder.prepareUserList = function(userList) {
 							<p class="user-list__type">' + user.type + '</p>\
 							<p class="user-list__name">' + user.name + '</p>\
 							<p class="user-list__id">ID:<span>' + user.id + '</span></p>\
+							<img class="user-list__delete js-deleteBtn"src="assets/img/delete.svg">\
 						</div>\
 					</div>';				
 	});
 
-	result += '<div class="user-list__item user-list__add card">\
+	result += '<div class="user-list__item user-list__add card js-addBtn">\
 					<div class="user-list__add">\
-						<img class="add-img" href="assets/img/add.svg">\
+						<img class="add-img" src="assets/img/add.svg">\
 					</div>\
 				</div>';		
 
